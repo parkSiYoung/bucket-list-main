@@ -1,0 +1,281 @@
+/* 커스텀 스타일 (Tailwind CSS 보완용) */
+
+/* === 배경 그라데이션 === */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background-attachment: fixed;
+}
+
+/* === 헤더 === */
+header h1 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+}
+
+header > p {
+    color: rgba(255, 255, 255, 0.82) !important;
+}
+
+/* === 카드 공통 스타일 === */
+.bg-white {
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.85) !important;
+}
+
+/* === 통계 항목 호버 === */
+.flex.justify-around.text-center > div {
+    padding: 0.75rem 1.25rem;
+    border-radius: 14px;
+    transition: transform 0.2s ease;
+}
+
+.flex.justify-around.text-center > div:hover {
+    transform: translateY(-3px);
+}
+
+/* === 필터 버튼 === */
+.filter-btn {
+    background-color: rgba(99, 102, 241, 0.07);
+    color: #6b7280;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+    background-color: rgba(99, 102, 241, 0.13);
+    color: #6366f1;
+    border-color: rgba(99, 102, 241, 0.22);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+    color: #1c1917;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.38);
+}
+
+/* === 버킷 항목 카드 === */
+.bucket-item {
+    animation: slideIn 0.3s ease-out;
+    border-radius: 16px !important;
+    border-left: 4px solid #6366f1 !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.bucket-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.13) !important;
+}
+
+.bucket-item.completed-item {
+    border-left-color: #22c55e !important;
+    background: rgba(240, 253, 244, 0.97) !important;
+}
+
+/* === 슬라이드인 애니메이션 === */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === 완료된 항목 텍스트 === */
+.bucket-item .line-through {
+    text-decoration: line-through;
+    opacity: 0.52;
+}
+
+/* === 체크박스 버튼 === */
+.bucket-item button:first-child {
+    transition: all 0.2s ease;
+}
+
+.bucket-item button:first-child:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.28);
+}
+
+/* === 수정/삭제 버튼 호버 === */
+.bucket-item .flex.gap-2 button {
+    transition: all 0.2s ease;
+}
+
+.bucket-item .flex.gap-2 button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* === 항목 추가 버튼 === */
+#bucketForm button[type="submit"] {
+    background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+    color: #1c1917;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.32);
+    transition: all 0.25s ease;
+}
+
+#bucketForm button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.48);
+}
+
+/* === 모달 저장 버튼 === */
+#editForm button[type="submit"] {
+    background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+    color: #1c1917;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+    transition: all 0.2s ease;
+}
+
+#editForm button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* === 취소 버튼 === */
+#cancelEdit {
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+#cancelEdit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* === 입력 필드 === */
+#bucketInput,
+#editInput {
+    border-radius: 12px !important;
+    border: 2px solid #e5e7eb !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#bucketInput:focus,
+#editInput:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.11) !important;
+    outline: none !important;
+}
+
+/* === 빈 상태 === */
+#emptyState {
+    animation: fadeIn 0.5s ease-in;
+}
+
+#emptyState p {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* === 모달 === */
+#editModal {
+    animation: fadeIn 0.2s ease-in;
+    backdrop-filter: blur(4px);
+}
+
+#editModal > div {
+    animation: scaleIn 0.2s ease-out;
+    border-radius: 24px !important;
+}
+
+/* === 스크롤바 === */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.38);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.65);
+}
+
+/* === 통계 숫자 전환 효과 === */
+#totalCount, #completedCount, #progressCount, #completionRate {
+    transition: all 0.3s ease;
+}
+
+/* === 버튼 클릭 효과 === */
+button:active {
+    transform: scale(0.97);
+}
+
+/* === 페이드인 애니메이션 === */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* === 스케일인 애니메이션 === */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* === 다크 모드 === */
+@media (prefers-color-scheme: dark) {
+    .bg-white {
+        background: rgba(30, 41, 59, 0.97) !important;
+        border-color: rgba(71, 85, 105, 0.5) !important;
+    }
+
+    .text-gray-800 {
+        color: #f1f5f9 !important;
+    }
+
+    .text-gray-600 {
+        color: #cbd5e1 !important;
+    }
+
+    .bucket-item.completed-item {
+        background: rgba(20, 83, 45, 0.35) !important;
+    }
+
+    #bucketInput,
+    #editInput {
+        background: rgba(30, 41, 59, 0.8) !important;
+        border-color: rgba(71, 85, 105, 0.6) !important;
+        color: #f1f5f9 !important;
+    }
+}
+
+/* === 모바일 반응형 === */
+@media (max-width: 640px) {
+    .bucket-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bucket-item > div:last-child {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 8px;
+    }
+
+    .filter-btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+}

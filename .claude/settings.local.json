@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m http.server 8001 --directory C:\\\\workspace\\\\bucket-list-main)",
+      "PowerShell(Test-Path *)",
+      "PowerShell(Get-ChildItem *)"
+    ]
+  }
+}
